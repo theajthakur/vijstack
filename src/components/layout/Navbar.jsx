@@ -17,13 +17,15 @@ export default function Navbar() {
     });
   }, []);
   return (
-    <div className="py-5 px-20">
-      <div className="flex justify-between align-middle">
-        <Link href={"/"}>
-          <img ref={logo} width={50} src="/logo.png" />
-        </Link>
-        <div ref={menu} className="cursor-pointer">
-          <Menu />
+    <div className="fixed top-0 w-full">
+      <div className="py-5 px-20">
+        <div className="flex justify-between align-middle">
+          <Link href={"/"}>
+            <img ref={logo} width={50} src="/logo.png" />
+          </Link>
+          <div ref={menu} className="cursor-pointer">
+            <Menu />
+          </div>
         </div>
       </div>
     </div>
