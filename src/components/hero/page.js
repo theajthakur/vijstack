@@ -1,22 +1,36 @@
+import { useEffect, useRef } from "react";
+import Logo from "../logo/Logo";
+import "./main.css";
+import gsap from "gsap";
 export default function Home() {
+  useEffect(() => {
+    gsap.from(".company-name", {
+      stagger: 0.1,
+      opacity: 0,
+      y: 50,
+      repeat: -1,
+      repeatDelay: 5,
+      delay: 0,
+    });
+  });
   return (
-    <main className="min-h-screen bg-background text-text flex flex-col items-center justify-center">
-      <h1 className="text-5xl font-display text-primary drop-shadow-glow">
-        Neon Vibe 🚀
-      </h1>
-      <p className="mt-4 text-lg text-text/80 max-w-md text-center">
-        This is your custom Tailwind theme with dark mode vibes.
-      </p>
-      <div className="mt-6 flex gap-4">
-        <button className="px-6 py-3 bg-primary text-background font-semibold rounded-button shadow-glow">
-          Primary
-        </button>
-        <button className="px-6 py-3 bg-accent text-background font-semibold rounded-button">
-          Accent
-        </button>
-        <button className="px-6 py-3 bg-secondary text-white font-semibold rounded-button">
-          Secondary
-        </button>
+    <main className="hero-container min-h-screen bg-background text-text flex flex-col items-center justify-center">
+      <div className="flex gap-3 justify-between">
+        <div className="logo-animater">
+          <div className="text-5xl font-extrabold flex space-x-1">
+            <img width={50} src="/logo.png" className="company-name" />
+            {["I", "J", "S", "T", "A", "C", "K"].map((letter, idx) => (
+              <span
+                key={idx}
+                className={`${
+                  letter === "S" ? "text-primary" : "text-white"
+                } hover:text-accent transition-colors duration-300 cursor-none company-name`}
+              >
+                {letter}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </main>
   );
