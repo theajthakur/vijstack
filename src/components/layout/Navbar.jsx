@@ -79,7 +79,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <div className="fixed top-0 w-full z-50">
+    <div className="absolute top-0 w-full z-50">
       <div className="py-5 px-4 sm:px-8 md:px-12 lg:px-20">
         <div className="flex justify-between items-center">
           <Link href={"/"}>

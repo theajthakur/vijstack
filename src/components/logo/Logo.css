@@ -18,7 +18,7 @@
   font-size: 3rem;
   color: white;
   font-family: "Poppins", sans-serif;
-  background: black;
+  background-color: #00000050;
 }
 
 /* Stacking offsets */
@@ -33,13 +33,4 @@
 #logo-container div:nth-child(3) {
   top: -20px;
   left: 20px;
-}
-
-#logo-container div:nth-child(3):after {
-  content: "";
-  position: absolute;
-  width: 10px;
-  height: 80px;
-  background: black;
-  right: -7.5px;
 }

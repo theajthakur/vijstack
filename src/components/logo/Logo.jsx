@@ -4,17 +4,25 @@ import "./Logo.css";
 
 export default function Logo() {
   useEffect(() => {
-    gsap.to("#logo-container div", {
+    const tl = gsap.timeline({ repeat: -1, repeatDelay: 0 });
+
+    tl.to("#logo-container div", {
       y: 0,
       opacity: 1,
       duration: 2,
-      delay: 1,
-      ease: "back.out(2)",
+      ease: "bounce",
       stagger: 0.15,
-      repeat: -1,
-      yoyo: true,
-      repeatDelay: 2,
-    });
+    })
+      .to("#logo-container div", {
+        duration: 5, // <-- hold for 5 seconds
+      })
+      .to("#logo-container div", {
+        y: 50, // or back down / fade out
+        opacity: 0,
+        duration: 2,
+        ease: "power2.in",
+        stagger: 0.15,
+      });
   }, []);
 
   return (
