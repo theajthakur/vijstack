@@ -1,26 +1,31 @@
-import React from "react";
+import gsap from "gsap";
+import { Menu } from "lucide-react";
+import Link from "next/link";
+import React, { useEffect, useRef } from "react";
 
 export default function Navbar() {
+  const logo = useRef(null);
+  const menu = useRef(null);
+  useEffect(() => {
+    gsap.from(logo.current, {
+      x: -100,
+      duration: 1,
+    });
+    gsap.from(menu.current, {
+      x: 100,
+      duration: 1,
+    });
+  }, []);
   return (
-    <nav className="bg-background text-text shadow-glow">
-      <div className="max-w-6xl mx-auto px-4">
-        <div className="flex justify-between items-center h-16">
-          {/* Left: Logo */}
-          <div className="flex items-center">
-            <img alt="Vijstack Logo" src="/logo.png" width={50} />
-          </div>
-
-          {/* Right: Links */}
-          <div className="flex space-x-6 font-sans">
-            <a href="#about" className="hover:text-primary transition-colors">
-              About
-            </a>
-            <a href="#contact" className="hover:text-accent transition-colors">
-              Contact
-            </a>
-          </div>
+    <div className="py-5 px-20">
+      <div className="flex justify-between align-middle">
+        <Link href={"/"}>
+          <img ref={logo} width={50} src="/logo.png" />
+        </Link>
+        <div ref={menu} className="cursor-pointer">
+          <Menu />
         </div>
       </div>
-    </nav>
+    </div>
   );
 }

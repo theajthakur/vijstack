@@ -1,0 +1,45 @@
+#logo-container {
+  position: relative;
+  width: 120px;
+  height: 120px;
+}
+
+#logo-container div {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 5px solid white;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translateY(20px); /* initial animation offset */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+  color: white;
+  font-family: "Poppins", sans-serif;
+  background: black;
+}
+
+/* Stacking offsets */
+#logo-container div:nth-child(1) {
+  top: 0;
+  left: 0;
+}
+#logo-container div:nth-child(2) {
+  top: -10px; /* small 3px gap */
+  left: 10px;
+}
+#logo-container div:nth-child(3) {
+  top: -20px;
+  left: 20px;
+}
+
+#logo-container div:nth-child(3):after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 80px;
+  background: black;
+  right: -7.5px;
+}
