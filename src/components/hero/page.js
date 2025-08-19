@@ -3,8 +3,8 @@ import Logo from "../logo/Logo";
 import "./main.css";
 import gsap from "gsap";
 export default function Home() {
-  const ts = gsap.timeline();
   useEffect(() => {
+    const ts = gsap.timeline();
     ts.to(".logo-3d", {
       y: -50,
     });
@@ -31,7 +31,7 @@ export default function Home() {
       scale: 1,
       duration: 0.5,
       stagger: {
-        each: 0.02,
+        each: 0.005,
         from: "random",
       },
       ease: "back.out(2)",
@@ -74,7 +74,7 @@ export default function Home() {
           </div>
         </div>
         <div className="description p-5 text-2xl md:p-10">
-          <div className="company-motto text-right font-sans">
+          <div className="company-motto text-center font-sans">
             {"We craft modern web & app solutions tailored for startups,businesses, and creators."
               .split("")
               .map((l, k) => (
