@@ -1,0 +1,10 @@
+.service-section {
+  background: url("/BGs/machinery_traditional.jpg") bottom fixed;
+  min-height: 100dvh;
+  background-size: cover;
+}
+
+.service-container {
+  background: #00000099;
+  backdrop-filter: blur(5px);
+}

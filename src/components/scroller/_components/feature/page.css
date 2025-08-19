@@ -1,6 +1,6 @@
 .feature-controller {
   min-height: 100vh;
-  background: url("/BGs/coding.jpg");
+  background: url("/BGs/coding.jpg") fixed;
   width: 100vw;
   background-size: cover;
 }
