@@ -80,6 +80,7 @@ export default function ServiceProvided() {
         { height: "0vh" },
         {
           height: "calc(100vh - 4rem)",
+          stagger: 0.1,
         }
       );
   }, []);
@@ -93,8 +94,26 @@ export default function ServiceProvided() {
           <span>The Problem with Staying Offline</span>
         </h1>
 
-        <div className="problem-list min-h-[200dvh]">
-          <div className="problem sticky top-[2rem] z-10 p-4 bg-accent overflow-hidden"></div>
+        <div className="problem-list min-h-[300dvh]">
+          {problems.map((c, i) => {
+            const Icon = c.icon;
+            return (
+              <div
+                key={i}
+                className="problem sticky top-[2rem] z-10 p-4 overflow-hidden"
+              >
+                <div className="md:flex md:gap-10 md:items-center h-full">
+                  <div className="md:w-[30%] icon-container flex w-full justify-center items-center mb-5">
+                    <Icon size={100} />
+                  </div>
+                  <div className="content-container text-center  mb-5">
+                    <h3 className="text-5xl mb-10">{c.title}</h3>
+                    <p className="text-2xl">{c.description}</p>
+                  </div>
+                </div>
+              </div>
+            );
+          })}
         </div>
       </div>
     </section>
