@@ -93,7 +93,7 @@ export default function Navbar() {
 
       {/* Sidebar */}
       <div
-        className="sidebar-container text-3xl w-full max-w-md p-4 fixed bg-accent right-[-100%] top-0 h-full transition-all overflow-hidden"
+        className="sidebar-container text-3xl w-full max-w-md p-8 fixed bg-background right-[-100%] top-0 h-full transition-all overflow-hidden text-accent"
         ref={sidebar}
       >
         <div className="sidebar-hider flex justify-end">
@@ -103,7 +103,7 @@ export default function Navbar() {
         </div>
         <div className="my-5 sidebar-link">
           <Link href={"/about"}>
-            <div className="flex gap-5 items-center justify-center">
+            <div className="flex gap-5 items-center">
               <User2 />
               <span>About</span>
             </div>
@@ -111,7 +111,7 @@ export default function Navbar() {
         </div>
         <div className="my-5 sidebar-link">
           <Link href={"/contact"}>
-            <div className="flex gap-5 items-center justify-center">
+            <div className="flex gap-5 items-center">
               <Contact />
               <span>Contact Us</span>
             </div>
@@ -119,7 +119,7 @@ export default function Navbar() {
         </div>
         <div className="my-5 sidebar-link">
           <Link href={"/newsletter"}>
-            <div className="flex gap-5 items-center justify-center">
+            <div className="flex gap-5 items-center">
               <Newspaper />
               <span>Newsletter</span>
             </div>
