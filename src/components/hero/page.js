@@ -36,6 +36,19 @@ export default function Home() {
       },
       ease: "back.out(2)",
     });
+
+    ts.fromTo(
+      ".company-motto span",
+      {
+        opacity: 0,
+      },
+      {
+        opacity: 1,
+        color: "var(--primary)",
+        stagger: 0.05,
+        delay: 2,
+      }
+    );
   });
   return (
     <div className="hero-controller">
