@@ -54,7 +54,6 @@ export default function ServiceProvided() {
           start: "top bottom",
           end: "40% 90%",
           scrub: true,
-          markers: true,
         },
       })
       .from(".service-container h1", { opacity: 0, y: 1000 })
