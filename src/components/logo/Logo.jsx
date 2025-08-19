@@ -10,7 +10,6 @@ export default function Logo() {
       y: 0,
       opacity: 1,
       duration: 2,
-      ease: "bounce",
       stagger: 0.15,
     })
       .to("#logo-container div", {
