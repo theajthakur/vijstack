@@ -39,13 +39,14 @@ export default function ProblemsOffline() {
         scrollTrigger: {
           trigger: ".offline-problems-container",
           start: "10% bottom",
-          end: "center bottom",
+          end: "40% bottom",
           scrub: true,
         },
       })
       .from(".heading .headingparts", {
         opacity: 0,
-        stagger: true,
+        scale: 0,
+        stagger: 1,
       });
     gsap
       .timeline({
