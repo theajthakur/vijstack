@@ -47,6 +47,21 @@ export default function ProblemsOffline() {
         opacity: 0,
         stagger: true,
       });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".offline-problems-container",
+          start: "center bottom",
+          end: "100% bottom",
+          scrub: true,
+        },
+      })
+      .from(".problem-unit", {
+        opacity: 0,
+        x: 100,
+        y: 100,
+        stagger: 2,
+      });
   }, []);
   return (
     <div
@@ -65,13 +80,34 @@ export default function ProblemsOffline() {
             </span>
           ))}
         </h3>
-        <div className="content flex w-full justify-center">
-          <div className="p-5 border-amber-500 border-2 w-full sm:w-[60vw]">
-            <div className="md:flex md:gap-2">
-              <div></div>
-              <div></div>
+        <div className="content w-full relative overflow-hidden">
+          {problems.map((c, i) => (
+            <div key={i} className="problem-unit">
+              <div className="flex justify-center bg-background">
+                <div className="p-5 w-full sm:w-[60vw]">
+                  <div className="flex flex-col md:flex-row md:gap-4 p-4 border rounded-md shadow-sm items-center">
+                    <div className="thumbnail-container w-full md:w-1/3 mb-4 md:mb-0">
+                      <Image
+                        alt={c.title}
+                        src={c.thumbnail}
+                        layout="responsive"
+                        width={400}
+                        height={225}
+                        className="rounded-md object-cover"
+                      />
+                    </div>
+
+                    <div className="content-container w-full md:w-2/3">
+                      <h2 className="font-semibold text-2xl text-center mb-2 text-primary">
+                        {c.title}
+                      </h2>
+                      <p className="text-center">{c.description}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
-          </div>
+          ))}
         </div>
       </div>
     </div>
