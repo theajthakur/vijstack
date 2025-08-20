@@ -1,3 +1,4 @@
+import AboutAgency from "@/components/pages/about/page";
 import React from "react";
 export const metadata = {
   title: "About Us",
@@ -10,7 +11,7 @@ export const metadata = {
 export default function page() {
   return (
     <div>
-      <h1>VIJAY</h1>
+      <AboutAgency />
     </div>
   );
 }

@@ -2,7 +2,14 @@ import { useEffect, useRef } from "react";
 import Logo from "../../logo/Logo";
 import "./main.css";
 import gsap from "gsap";
-export default function Hero({ title, highlight, tagline, highlight2, motto }) {
+export default function Hero({
+  title,
+  highlight,
+  tagline,
+  highlight2,
+  motto,
+  center,
+}) {
   useEffect(() => {
     const ts = gsap.timeline();
     ts.to(".logo-3d", {
@@ -58,7 +65,11 @@ export default function Hero({ title, highlight, tagline, highlight2, motto }) {
             <div className="flex justify-center logo-3d">
               <Logo />
             </div>
-            <div className="text-5xl lg:text-8xl font-extrabold flex space-x-1">
+            <div
+              className={`text-5xl lg:text-8xl font-extrabold flex space-x-1 ${
+                center ? "justify-center" : ""
+              }`}
+            >
               {title.split("").map((letter, idx) => (
                 <span
                   key={idx}
