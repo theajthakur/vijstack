@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import Logo from "../logo/Logo";
+import Logo from "../../../logo/Logo";
 import "./main.css";
 import gsap from "gsap";
-export default function Home() {
+export default function Hero() {
   useEffect(() => {
     const ts = gsap.timeline();
     ts.to(".logo-3d", {

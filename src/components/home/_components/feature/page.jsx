@@ -57,26 +57,59 @@ export default function FeatureProvided() {
   ];
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
-    const tl = gsap
+    gsap
       .timeline({
         scrollTrigger: {
-          trigger: "h2.mhead",
+          trigger: ".feature-controller",
           start: "top bottom",
-          end: "top 60%",
+          end: "20% 70%",
           scrub: 1,
         },
       })
-      .from("h2.mhead", { y: "30rem", fontSize: "10rem" })
-      .from(".points", { stagger: 0.1, x: 200, opacity: 0 });
+      .from("h2.mhead", { y: "30rem", fontSize: "8rem" });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".feature-controller",
+          start: "20% 80%",
+          end: "50% 80%",
+          scrub: 1,
+        },
+      })
+      .from(".feature-controller .points", {
+        stagger: 0.1,
+        x: 200,
+        opacity: 0,
+      });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".feature-controller",
+          start: "70% 80%",
+          end: "bottom 80%",
+          scrub: 1,
+        },
+      })
+      .to(".points", { stagger: 0.1, x: -200, opacity: 0 });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".feature-controller",
+          start: "70% 70%",
+          end: "bottom 70%",
+          scrub: 1,
+        },
+      })
+      .to("h2.mhead", { y: "30rem", fontSize: "6rem", opacity: 0 });
   }, []);
   return (
     <div className="feature-controller">
-      <div className="min-h-dvh h-full bg-[#000000bb]">
-        <div className="w-vw p-5 sm:p-8 flex-col space-y-30 overflow-x-hidden overflow-y-scroll">
-          <h2 className="text-center text-4xl lg:text-6xl text-secondary font-extrabold relative whitespace-nowrap overflow-ellipsis overflow-hidden mhead">
+      <div className="min-h-[100dvh] h-full bg-[#000000bb]">
+        <div className="w-vw p-5 sm:p-8">
+          <h2 className="text-center text-4xl lg:text-6xl text-secondary font-extrabold whitespace-nowrap overflow-ellipsis overflow-hidden mhead mb-10">
             Why Choose us?
           </h2>
-          <div className="grid gap-8 md:grid-cols-2 text-left keypoints">
+          <div className="grid gap-8 md:grid-cols-2 text-left keypoints w-full overflow-hidden">
             {points.map((point, index) => {
               const Icon = point.icon;
               return (
