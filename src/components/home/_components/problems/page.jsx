@@ -10,25 +10,25 @@ export default function ProblemsOffline() {
       title: "Local Hardware & Utility Shops",
       description:
         "Small shops selling motors, pumps, pipes, and household items face a big problem — only nearby people know about them. Without an online presence, they miss out on customers searching online and lose sales to bigger competitors.",
-      thumbnail: "/BGs/traditional attendance.jpg",
+      thumbnail: "/BGs/hardware_offline2.jpg",
     },
     {
       title: "Schools & Educational Institutes",
       description:
         "Schools that are not online struggle with managing attendance, fee records, and student progress. Parents find it hard to track their child’s activities and often depend on registers or manual updates, which wastes time and lacks transparency.",
-      thumbnail: "/BGs/machinery_traditional.jpg",
+      thumbnail: "/BGs/school_problem_2.jpg",
     },
     {
       title: "Restaurants & Food Outlets",
       description:
         "Restaurants without online ordering miss out on huge opportunities. Customers today prefer to order food from their phones with integrated payments. Without this, restaurants lose sales to online-first competitors.",
-      thumbnail: "/BGs/traditional attendance.jpg",
+      thumbnail: "/BGs/restaurant_problem.jpg",
     },
     {
       title: "Grocery Stores",
       description:
         "Local grocery stores that are not online depend only on walk-in customers. People now prefer ordering groceries online with home delivery. Without this option, these stores lose customers to big online platforms.",
-      thumbnail: "/BGs/machinery_traditional.jpg",
+      thumbnail: "/BGs/grocery_problem.jpg",
     },
   ];
 
@@ -51,7 +51,7 @@ export default function ProblemsOffline() {
       .timeline({
         scrollTrigger: {
           trigger: ".offline-problems-container",
-          start: "center bottom",
+          start: "40% bottom",
           end: "100% bottom",
           scrub: true,
         },
@@ -59,8 +59,22 @@ export default function ProblemsOffline() {
       .from(".problem-unit", {
         opacity: 0,
         x: 100,
-        y: 100,
+        scale: 0.5,
         stagger: 2,
+      });
+    gsap
+      .timeline({
+        scrollTrigger: {
+          trigger: ".offline-problems-container",
+          start: "70% center",
+          end: "bottom center",
+          scrub: true,
+        },
+      })
+      .to(".problem-unit", {
+        scale: 0.5,
+        x: -100,
+        stagger: 4,
       });
   }, []);
   return (
