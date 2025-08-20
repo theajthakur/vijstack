@@ -1,8 +1,8 @@
 import { useEffect, useRef } from "react";
-import Logo from "../../../logo/Logo";
+import Logo from "../../logo/Logo";
 import "./main.css";
 import gsap from "gsap";
-export default function Hero() {
+export default function Hero({ title, highlight, tagline, highlight2, motto }) {
   useEffect(() => {
     const ts = gsap.timeline();
     ts.to(".logo-3d", {
@@ -59,11 +59,11 @@ export default function Hero() {
               <Logo />
             </div>
             <div className="text-5xl lg:text-8xl font-extrabold flex space-x-1">
-              {["V", "I", "J", "S", "T", "A", "C", "K"].map((letter, idx) => (
+              {title.split("").map((letter, idx) => (
                 <span
                   key={idx}
                   className={`${
-                    letter === "S" || letter === "V"
+                    highlight.includes(letter.toLowerCase())
                       ? "text-primary"
                       : "text-white"
                   } hover:text-accent transition-colors duration-300 cursor-none company-name`}
@@ -73,11 +73,13 @@ export default function Hero() {
               ))}
             </div>
             <div className="text-end lg:text-3xl">
-              {"Your Vision, Our Code".split("").map((letter, idx) => (
+              {tagline.split("").map((letter, idx) => (
                 <span
                   key={idx}
                   className={`${
-                    letter.toLowerCase() === "o" ? "text-primary" : "text-white"
+                    highlight2.includes(letter.toLowerCase())
+                      ? "text-primary"
+                      : "text-white"
                   } hover:text-accent transition-colors duration-300 cursor-none company-tagline`}
                 >
                   {letter}
@@ -88,13 +90,11 @@ export default function Hero() {
         </div>
         <div className="description p-5 text-2xl md:p-10">
           <div className="company-motto text-center font-sans">
-            {"We craft modern web & app solutions tailored for startups,businesses, and creators."
-              .split("")
-              .map((l, k) => (
-                <span key={k} className="opacity-0">
-                  {l}
-                </span>
-              ))}
+            {motto.split("").map((l, k) => (
+              <span key={k} className="opacity-0">
+                {l}
+              </span>
+            ))}
           </div>
         </div>
       </main>
