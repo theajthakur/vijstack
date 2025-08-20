@@ -1,6 +1,7 @@
 "use client";
 import Hero from "@/components/universal/hero/page";
 import React from "react";
+import AboutAgencyContent from "./_components/content";
 
 export default function AboutAgency() {
   return (
@@ -12,6 +13,7 @@ export default function AboutAgency() {
         highlight2={["w", "e"]}
         motto={"Building digital solutions with passion and purpose."}
       />
+      <AboutAgencyContent />
     </div>
   );
 }
