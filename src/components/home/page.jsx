@@ -1,4 +1,5 @@
-import React from "react";
+"use client";
+import React, { useEffect, useState } from "react";
 import Hero from "../universal/hero/page";
 import FeatureProvided from "./_components/feature/page";
 import ProblemsOffline from "./_components/problems/page";
