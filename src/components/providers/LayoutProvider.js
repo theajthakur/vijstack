@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState } from "react";
 import Navbar from "../layout/Navbar";
 import MainLoader from "../layout/Loader";
+import Footer from "../layout/Footer";
 
 export default function LayoutProvider({ children }) {
   const loaderRef = useRef(null);
@@ -33,6 +34,7 @@ export default function LayoutProvider({ children }) {
       )}
       <Navbar />
       <div>{children}</div>
+      <Footer />
     </div>
   );
 }
