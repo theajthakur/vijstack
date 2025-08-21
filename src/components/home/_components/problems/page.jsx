@@ -59,20 +59,21 @@ export default function ProblemsOffline() {
       })
       .from(".problem-unit", {
         opacity: 0,
-        scale: 0.5,
+        x: 100,
         stagger: 2,
       });
     gsap
       .timeline({
         scrollTrigger: {
           trigger: ".offline-problems-container",
-          start: "70% center",
-          end: "bottom center",
+          start: "40% center",
+          end: "bottom top",
           scrub: true,
         },
       })
       .to(".problem-unit", {
-        scale: 0.5,
+        opacity: 0,
+        x: -100,
         stagger: 4,
       });
   }, []);
