@@ -85,12 +85,16 @@ export default function FeatureProvided() {
       .timeline({
         scrollTrigger: {
           trigger: ".feature-controller",
-          start: "70% 80%",
-          end: "bottom 80%",
+          start: "70% center",
+          end: "bottom center",
           scrub: 1,
         },
       })
-      .to(".points", { stagger: 0.1, x: -200, opacity: 0 });
+      .to(".points", {
+        stagger: 0.1,
+        x: -200,
+        opacity: 0,
+      });
     gsap
       .timeline({
         scrollTrigger: {

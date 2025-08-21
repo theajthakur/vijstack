@@ -59,7 +59,6 @@ export default function ProblemsOffline() {
       })
       .from(".problem-unit", {
         opacity: 0,
-        x: 100,
         scale: 0.5,
         stagger: 2,
       });
@@ -74,7 +73,6 @@ export default function ProblemsOffline() {
       })
       .to(".problem-unit", {
         scale: 0.5,
-        x: -100,
         stagger: 4,
       });
   }, []);
@@ -97,7 +95,7 @@ export default function ProblemsOffline() {
         </h3>
         <div className="content w-full relative overflow-hidden">
           {problems.map((c, i) => (
-            <div key={i} className="problem-unit">
+            <div key={i} className="problem-unit  ">
               <div className="flex justify-center bg-background">
                 <div className="p-5 w-full sm:w-[60vw]">
                   <div className="flex flex-col md:flex-row md:gap-4 p-4 border rounded-md shadow-sm items-center">
