@@ -57,13 +57,13 @@ export default function Footer() {
           </p>
           <div className="flex gap-4 mt-6">
             <a
-              href="#"
+              href="https://instagram.com/vijstack"
               className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition"
             >
               <Instagram className="w-8 h-8" />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/company/vijstack"
               className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition"
             >
               <Linkedin className="w-8 h-8" />
@@ -102,8 +102,7 @@ export default function Footer() {
               <Phone className="w-4 h-4" /> +91 9695146906
             </li>
             <li className="flex items-center gap-2">
-              <MapPin className="w-4 h-4" /> Greater Noida, 201308 Uttar
-              Pradesh, India
+              <MapPin className="w-4 h-4" /> Greater Noida, Uttar Pradesh, India
             </li>
           </ul>
         </div>
