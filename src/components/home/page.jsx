@@ -3,6 +3,7 @@ import React, { useEffect, useState } from "react";
 import Hero from "../universal/hero/page";
 import FeatureProvided from "./_components/feature/page";
 import ProblemsOffline from "./_components/problems/page";
+import MainCTA from "./_components/CTA/page";
 
 export default function Home() {
   return (
@@ -16,8 +17,9 @@ export default function Home() {
           "We craft modern web & app solutions tailored for startups,businesses, and creators."
         }
       />
-      <FeatureProvided />
       <ProblemsOffline />
+      <FeatureProvided />
+      <MainCTA />
     </div>
   );
 }

@@ -108,7 +108,7 @@ export default function FeatureProvided() {
   }, []);
   return (
     <div className="feature-controller">
-      <div className="min-h-[100dvh] h-full bg-[#000000bb]">
+      <div className=" h-full bg-[#000000bb]">
         <div className="w-vw p-5 sm:p-8">
           <h2 className="text-center text-4xl lg:text-6xl text-secondary font-extrabold whitespace-nowrap overflow-ellipsis overflow-hidden mhead mb-10">
             Why Choose us?
