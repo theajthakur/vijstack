@@ -18,8 +18,8 @@ export default function Home() {
           "We craft modern web & app solutions tailored for startups,businesses, and creators."
         }
       />
-      <ProblemsOffline />
       <FeatureProvided />
+      <ProblemsOffline />
       <Testimonials />
       <MainCTA />
     </div>
