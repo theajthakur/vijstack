@@ -75,22 +75,6 @@ export default function MainCTA() {
       };
     });
     if (!ctaRef.current || !headRef.current || !contentRef.current) return;
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: "top center",
-          end: "40% center",
-          scrub: true,
-        },
-      })
-      .from(headRef.current, {
-        y: 500,
-        fontSize: "1rem",
-      })
-      .to(contentRef.current, {
-        scale: 1,
-      });
   }, []);
 
   return (
@@ -109,7 +93,7 @@ export default function MainCTA() {
           Ready to Build Your Next Big Idea?
         </h2>
 
-        <div className="scale-0 overflow-hidden" ref={contentRef}>
+        <div className="overflow-hidden" ref={contentRef}>
           <p className="mt-4 text-lg md:text-xl max-w-2xl text-text/90">
             No fluff. Just code that works, scales, and makes an impact.
           </p>
