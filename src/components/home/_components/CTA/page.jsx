@@ -30,6 +30,7 @@ import {
 } from "devicons-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -101,12 +102,12 @@ export default function MainCTA() {
             className="mt-8 flex flex-wrap gap-4 justify-center"
             ref={buttonsRef}
           >
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-button bg-primary text-black font-semibold shadow-glow hover:scale-105 transition-transform"
             >
               Start a Project <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
             <a
               href="/portfolio"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-button border border-white/20 bg-white/10 text-white hover:bg-white/20 transition"
