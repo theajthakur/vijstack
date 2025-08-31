@@ -87,7 +87,7 @@ We welcome contributions to make Vijstack projects better!
 
 - **Founder:** Vijay Singh
 - 📧 Email: vijaysingh.handler@gmail.com
-- 🌐 Website: [Vijstack](https://www.vijstack.com)
+- 🌐 Website: [Portfolio](https://dev.vijstack.com)
 - 🐙 GitHub: [Vijstack](https://github.com/vijstack)
 
 ---
