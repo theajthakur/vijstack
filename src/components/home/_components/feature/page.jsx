@@ -1,5 +1,3 @@
-import React, { useEffect } from "react";
-import "./page.css";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import {
@@ -12,8 +10,15 @@ import {
   CheckCircle2,
   TrendingUp,
 } from "lucide-react";
+import { useEffect, useRef } from "react";
+
 export default function FeatureProvided() {
   const points = [
+    {
+      title: "SEO & Online Visibility",
+      desc: "We optimize your website for search engines so your business gets discovered by the right audience, boosting traffic and sales.",
+      icon: TrendingUp,
+    },
     {
       title: "Tailored Solutions",
       desc: "We don’t just build websites; we craft digital solutions designed specifically for your business needs.",
@@ -55,84 +60,81 @@ export default function FeatureProvided() {
       icon: TrendingUp,
     },
   ];
+  const sectionRef = useRef(null);
+  const headingRef = useRef(null);
+  const cardsRef = useRef([]);
+
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".feature-controller",
-          start: "top bottom",
-          end: "20% 70%",
-          scrub: 1,
+          trigger: sectionRef.current,
+          start: "top 80%",
+          end: "top center",
+          scrub: true,
         },
       })
-      .from("h2.mhead", { y: "30rem", fontSize: "8rem" });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".feature-controller",
-          start: "20% 80%",
-          end: "50% 80%",
-          scrub: 1,
-        },
-      })
-      .from(".feature-controller .points", {
-        stagger: 0.1,
-        x: 200,
-        opacity: 0,
+      .from(headingRef.current, {
+        y: 100,
+        scale: 0,
       });
     gsap
       .timeline({
         scrollTrigger: {
-          trigger: ".feature-controller",
-          start: "70% center",
-          end: "bottom center",
-          scrub: 1,
+          trigger: sectionRef.current,
+          start: "top center",
+          end: "30% 30%",
+          scrub: true,
         },
       })
-      .to(".points", {
-        stagger: 0.1,
-        x: -200,
-        opacity: 0,
-      });
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ".feature-controller",
-          start: "70% 70%",
-          end: "bottom 70%",
-          scrub: 1,
+      .fromTo(
+        cardsRef.current,
+        {
+          x: 100,
+          stagger: 0.5,
         },
-      })
-      .to("h2.mhead", { y: "30rem", fontSize: "6rem", opacity: 0 });
+        {
+          x: 0,
+          stagger: 0.5,
+        }
+      );
   }, []);
+
   return (
-    <div className="feature-controller">
-      <div className=" h-full bg-[#000000bb]">
-        <div className="w-vw p-5 sm:p-8">
-          <h2 className="text-center text-4xl lg:text-6xl text-secondary font-extrabold whitespace-nowrap overflow-ellipsis overflow-hidden mhead mb-10">
-            Why Choose us?
-          </h2>
-          <div className="grid gap-8 md:grid-cols-2 text-left keypoints w-full overflow-hidden">
-            {points.map((point, index) => {
-              const Icon = point.icon;
-              return (
-                <div className="points" key={index}>
-                  <div className="flex items-center space-x-4 p-4 rounded-card bg-[#111] hover:shadow-glow transition">
-                    <Icon className="text-blue-500" size={50} />
-                    <div>
-                      <h3 className="text-2xl font-semibold mb-1">
-                        {point.title}
-                      </h3>
-                      <p className="opacity-80">{point.desc}</p>
-                    </div>
-                  </div>
-                </div>
-              );
-            })}
-          </div>
-        </div>
+    <section
+      className="py-16 px-6 md:px-20 bg-background text-foreground relative"
+      ref={sectionRef}
+    >
+      <h2
+        className="text-3xl md:text-5xl font-bold text-center text-primary drop-shadow-glow mb-12"
+        ref={headingRef}
+      >
+        Why Choose Us?
+      </h2>
+
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+        {points.map((point, index) => {
+          const Icon = point.icon;
+          return (
+            <div
+              key={index}
+              ref={(el) => (cardsRef.current[index] = el)}
+              className="flex flex-col items-start gap-4 bg-[#1a1a1a] p-6 rounded-[var(--radius-card)] shadow-md hover:shadow-[var(--shadow-glow)] transition duration-300 border border-transparent hover:border-primary group"
+            >
+              <div className="p-3 rounded-full bg-primary/10 text-primary shadow-md group-hover:scale-110 transition-transform duration-300">
+                <Icon size={28} strokeWidth={2.2} />
+              </div>
+              <h3 className="text-lg md:text-xl font-semibold text-white">
+                {point.title}
+              </h3>
+              <p className="text-sm md:text-base text-gray-300 leading-relaxed">
+                {point.desc}
+              </p>
+            </div>
+          );
+        })}
       </div>
-    </div>
+    </section>
   );
 }
