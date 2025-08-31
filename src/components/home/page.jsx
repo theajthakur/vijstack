@@ -4,6 +4,7 @@ import Hero from "../universal/hero/page";
 import FeatureProvided from "./_components/feature/page";
 import ProblemsOffline from "./_components/problems/page";
 import MainCTA from "./_components/CTA/page";
+import { Testimonials } from "./_components/testinomials/page";
 
 export default function Home() {
   return (
@@ -17,8 +18,9 @@ export default function Home() {
           "We craft modern web & app solutions tailored for startups,businesses, and creators."
         }
       />
-      <ProblemsOffline />
       <FeatureProvided />
+      <ProblemsOffline />
+      <Testimonials />
       <MainCTA />
     </div>
   );

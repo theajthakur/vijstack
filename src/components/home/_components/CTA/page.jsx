@@ -30,6 +30,7 @@ import {
 } from "devicons-react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -75,22 +76,6 @@ export default function MainCTA() {
       };
     });
     if (!ctaRef.current || !headRef.current || !contentRef.current) return;
-    gsap
-      .timeline({
-        scrollTrigger: {
-          trigger: ctaRef.current,
-          start: "top center",
-          end: "40% center",
-          scrub: true,
-        },
-      })
-      .from(headRef.current, {
-        y: 500,
-        fontSize: "1rem",
-      })
-      .to(contentRef.current, {
-        scale: 1,
-      });
   }, []);
 
   return (
@@ -109,7 +94,7 @@ export default function MainCTA() {
           Ready to Build Your Next Big Idea?
         </h2>
 
-        <div className="scale-0 overflow-hidden" ref={contentRef}>
+        <div className="overflow-hidden" ref={contentRef}>
           <p className="mt-4 text-lg md:text-xl max-w-2xl text-text/90">
             No fluff. Just code that works, scales, and makes an impact.
           </p>
@@ -117,12 +102,12 @@ export default function MainCTA() {
             className="mt-8 flex flex-wrap gap-4 justify-center"
             ref={buttonsRef}
           >
-            <a
+            <Link
               href="/contact"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-button bg-primary text-black font-semibold shadow-glow hover:scale-105 transition-transform"
             >
               Start a Project <ArrowRight className="w-5 h-5" />
-            </a>
+            </Link>
             <a
               href="/portfolio"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-button border border-white/20 bg-white/10 text-white hover:bg-white/20 transition"
