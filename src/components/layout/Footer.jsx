@@ -11,6 +11,7 @@ import {
   File,
   PhoneCall,
 } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -56,18 +57,18 @@ export default function Footer() {
             businesses, and creators. Your vision, our code.
           </p>
           <div className="flex gap-4 mt-6">
-            <a
+            <Link
               href="https://instagram.com/vijstack"
               className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition"
             >
               <Instagram className="w-8 h-8" />
-            </a>
-            <a
+            </Link>
+            <Link
               href="https://www.linkedin.com/company/vijstack"
               className="p-2 rounded-full bg-white/5 hover:bg-white/10 transition"
             >
               <Linkedin className="w-8 h-8" />
-            </a>
+            </Link>
           </div>
         </div>
 
@@ -83,9 +84,9 @@ export default function Footer() {
             ].map((e, i) => (
               <li className="flex gap-2 items-center" key={i}>
                 <e.icon />
-                <a href={e.link} className="hover:text-primary">
+                <Link href={e.link} className="hover:text-primary">
                   {e.text}
-                </a>
+                </Link>
               </li>
             ))}
           </ul>
