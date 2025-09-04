@@ -2,6 +2,8 @@ import { useEffect, useRef } from "react";
 import Logo from "../../logo/Logo";
 import "./main.css";
 import gsap from "gsap";
+import Button from "@/components/ui/Button";
+import { ArrowLeftIcon } from "lucide-react";
 export default function Hero({
   title,
   highlight,
@@ -10,6 +12,7 @@ export default function Hero({
   motto,
   center,
 }) {
+  const buttonRef = useRef(null);
   useEffect(() => {
     const ts = gsap.timeline();
     ts.to(".logo-3d", {
@@ -21,15 +24,20 @@ export default function Hero({
       opacity: 0,
       y: 50,
       delay: 1,
-      duration: 1,
+      duration: 0.5,
     });
 
     ts.from(".company-tagline", {
       scale: 0,
       opacity: 0,
-      duration: 0.5,
+      duration: 0.25,
       stagger: 0.05,
       ease: "back.out(2)",
+    });
+
+    ts.from(buttonRef.current, {
+      opacity: 0,
+      y: 200,
     });
 
     ts.to(".company-motto span", {
@@ -53,7 +61,6 @@ export default function Hero({
         opacity: 1,
         color: "var(--primary)",
         stagger: 0.05,
-        delay: 2,
       }
     );
   });
@@ -107,6 +114,16 @@ export default function Hero({
               </span>
             ))}
           </div>
+        </div>
+        <div ref={buttonRef} className="py-10">
+          <Button type="outline">
+            <div className="flex gap-2">
+              <div className="arrow-container">
+                <ArrowLeftIcon />
+              </div>
+              <div className="text-container"> Get a Free Quote</div>
+            </div>
+          </Button>
         </div>
       </main>
     </div>
