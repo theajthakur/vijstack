@@ -3,7 +3,8 @@ import Logo from "../../logo/Logo";
 import "./main.css";
 import gsap from "gsap";
 import Button from "@/components/ui/Button";
-import { ArrowLeftIcon } from "lucide-react";
+import { ArrowRight } from "lucide-react";
+import { useRouter } from "next/navigation";
 export default function Hero({
   title,
   highlight,
@@ -12,6 +13,15 @@ export default function Hero({
   motto,
   center,
 }) {
+  const router = useRouter();
+
+  const goToLink = (link) => {
+    try {
+      router.push(link);
+    } catch (error) {
+      router.push("/contact");
+    }
+  };
   const buttonRef = useRef(null);
   useEffect(() => {
     const ts = gsap.timeline();
@@ -116,12 +126,17 @@ export default function Hero({
           </div>
         </div>
         <div ref={buttonRef} className="py-10">
-          <Button type="outline">
-            <div className="flex gap-2">
-              <div className="arrow-container">
-                <ArrowLeftIcon />
-              </div>
+          <Button
+            type="outline"
+            onClick={() => {
+              goToLink("/contact");
+            }}
+          >
+            <div className="flex gap-2 hover:gap-3">
               <div className="text-container"> Get a Free Quote</div>
+              <div className="arrow-container">
+                <ArrowRight />
+              </div>
             </div>
           </Button>
         </div>

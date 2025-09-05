@@ -3,13 +3,12 @@ import clsx from "clsx";
 
 const Button = ({ type = "filled", text, children, onClick, className }) => {
   const baseStyles =
-    "px-6 py-2 rounded-[var(--radius-button)] font-semibold transition-all duration-300 shadow-md cursor-pointer";
+    "px-6 py-2 rounded-button font-semibold transition-all duration-300 shadow-md cursor-pointer";
 
-  const filledStyles =
-    "bg-[var(--primary)] text-[var(--background)] hover:shadow-[var(--shadow-glow)]";
+  const filledStyles = "bg-primary text-background hover:shadow-glow";
 
   const outlineStyles =
-    "border-2 border-[var(--primary)] text-[var(--primary)] bg-transparent hover:bg-[var(--primary)] hover:text-[var(--background)]";
+    "border-2 border-primary text-primary bg-transparent hover:bg-primary active:bg-primary hover:text-background active:text-background";
 
   return (
     <button
