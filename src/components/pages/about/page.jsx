@@ -6,13 +6,6 @@ import AboutAgencyContent from "./_components/content";
 export default function AboutAgency() {
   return (
     <div className="min-h-dvh">
-      <Hero
-        title={"About - us"}
-        highlight={["a", "u"]}
-        tagline={"Who We Are"}
-        highlight2={["w", "e"]}
-        motto={"Building digital solutions with passion and purpose."}
-      />
       <AboutAgencyContent />
     </div>
   );

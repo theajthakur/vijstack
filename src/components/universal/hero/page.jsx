@@ -5,14 +5,7 @@ import gsap from "gsap";
 import Button from "@/components/ui/Button";
 import { ArrowRight } from "lucide-react";
 import { useRouter } from "next/navigation";
-export default function Hero({
-  title,
-  highlight,
-  tagline,
-  highlight2,
-  motto,
-  center,
-}) {
+export default function Hero() {
   const router = useRouter();
 
   const goToLink = (link) => {
@@ -83,15 +76,13 @@ export default function Hero({
               <Logo />
             </div>
             <div
-              className={`text-5xl lg:text-8xl font-extrabold flex space-x-1 ${
-                center ? "justify-center" : ""
-              }`}
+              className={`text-5xl lg:text-8xl font-extrabold flex space-x-1`}
             >
-              {title.split("").map((letter, idx) => (
+              {"VIJSTACK".split("").map((letter, idx) => (
                 <span
                   key={idx}
                   className={`${
-                    highlight.includes(letter.toLowerCase())
+                    ["v", "s"].includes(letter.toLowerCase())
                       ? "text-primary"
                       : "text-white"
                   } hover:text-accent transition-colors duration-300 cursor-none company-name`}
@@ -101,11 +92,11 @@ export default function Hero({
               ))}
             </div>
             <div className="text-end lg:text-3xl">
-              {tagline.split("").map((letter, idx) => (
+              {"Your Vision, Our Code".split("").map((letter, idx) => (
                 <span
                   key={idx}
                   className={`${
-                    highlight2.includes(letter.toLowerCase())
+                    ["o"].includes(letter.toLowerCase())
                       ? "text-primary"
                       : "text-white"
                   } hover:text-accent transition-colors duration-300 cursor-none company-tagline`}
@@ -118,11 +109,13 @@ export default function Hero({
         </div>
         <div className="description p-5 text-2xl md:p-10">
           <div className="company-motto text-center font-sans">
-            {motto.split("").map((l, k) => (
-              <span key={k} className="opacity-0">
-                {l}
-              </span>
-            ))}
+            {"We craft modern web & app solutions tailored for startups,businesses, and creators."
+              .split("")
+              .map((l, k) => (
+                <span key={k} className="opacity-0">
+                  {l}
+                </span>
+              ))}
           </div>
         </div>
         <div ref={buttonRef} className="py-10">
