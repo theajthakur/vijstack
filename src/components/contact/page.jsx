@@ -5,11 +5,6 @@ import { toast } from "sonner";
 import { Mail, MapPin, Phone } from "lucide-react";
 
 export function ContactUs() {
-  useEffect(() => {
-    toast.error("Hi");
-    toast.error("Hi");
-    toast.success("Hi");
-  });
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -54,10 +49,10 @@ export function ContactUs() {
       setFormData({ name: "", email: "", mobile: "", message: "" });
     } catch (err) {
       setStatus({
-        text: "❌ Failed to send message. Please try again.",
+        text: "Failed to send message. Please try again.",
         type: "error",
       });
-      toast.error("❌ Failed to send message. Please try again.");
+      toast.error("Failed to send message. Please try again.");
     } finally {
       setLoading(false);
     }
@@ -73,47 +68,69 @@ export function ContactUs() {
   ];
 
   return (
-    <section className="relative flex items-center justify-center min-h-screen px-6 py-16 bg-neutral-950 overflow-hidden">
+    <section
+      id="contact"
+      aria-labelledby="contact-heading"
+      className="relative flex items-center justify-center min-h-screen px-6 py-16 bg-neutral-950 overflow-hidden"
+    >
       <BackgroundBeams />
+
       <div className="relative z-10 max-w-3xl w-full bg-[rgba(255,255,255,0.02)] backdrop-blur-xl border border-white/10 shadow-xl rounded-2xl p-10 text-center mt-20 md:mt-0">
-        <h1 className="text-4xl md:text-5xl font-heading font-bold text-[var(--foreground)]">
-          Let’s Build Something Great
+        <h1
+          id="contact-heading"
+          className="text-4xl md:text-5xl font-heading font-bold text-[var(--foreground)]"
+        >
+          Contact Us – Let’s Build Something Great
         </h1>
+
         <p className="mt-3 text-lg text-[var(--foreground)]/70">
-          Have a project in mind? Drop us a message and let’s make it happen.
+          Have a project in mind? Send us a message and let’s make it happen.
         </p>
 
-        <form onSubmit={handleSubmit} className="mt-10 space-y-5">
+        {/* Form */}
+        <form
+          onSubmit={handleSubmit}
+          className="mt-10 space-y-5"
+          aria-label="Contact Form"
+        >
           <input
             type="text"
             name="name"
-            placeholder="Your Name"
+            placeholder="Your Full Name"
+            required
             value={formData.name}
             onChange={handleChange}
+            aria-label="Your Name"
             className="w-full px-4 py-3 rounded-xl bg-[rgba(255,255,255,0.05)] border border-white/10 text-[var(--foreground)] placeholder-[var(--foreground)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <input
             type="email"
             name="email"
-            placeholder="Your Email"
+            placeholder="Your Email Address"
+            required
             value={formData.email}
             onChange={handleChange}
+            aria-label="Your Email"
             className="w-full px-4 py-3 rounded-xl bg-[rgba(255,255,255,0.05)] border border-white/10 text-[var(--foreground)] placeholder-[var(--foreground)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <input
             type="tel"
             name="mobile"
-            placeholder="Your Mobile"
+            placeholder="Your Mobile Number"
+            required
             value={formData.mobile}
             onChange={handleChange}
+            aria-label="Your Mobile"
             className="w-full px-4 py-3 rounded-xl bg-[rgba(255,255,255,0.05)] border border-white/10 text-[var(--foreground)] placeholder-[var(--foreground)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <textarea
             name="message"
             placeholder="Your Message"
             rows={5}
+            required
             value={formData.message}
             onChange={handleChange}
+            aria-label="Your Message"
             className="w-full px-4 py-3 rounded-xl bg-[rgba(255,255,255,0.05)] border border-white/10 text-[var(--foreground)] placeholder-[var(--foreground)]/50 focus:outline-none focus:ring-2 focus:ring-[var(--primary)]"
           />
           <button
@@ -125,9 +142,9 @@ export function ContactUs() {
           </button>
         </form>
 
-        {/* Inline feedback message */}
         {status.text && (
           <p
+            role="alert"
             className={`mt-4 font-medium ${
               status.type === "success" ? "text-green-400" : "text-red-400"
             }`}
@@ -135,7 +152,8 @@ export function ContactUs() {
             {status.text}
           </p>
         )}
-        <div className="contact-details mt-10 flex flex-wrap gap-4 justify-center">
+
+        <address className="contact-details mt-10 flex flex-wrap gap-4 justify-center not-italic">
           {contactComponent.map((e, i) => {
             const Element = e.icon;
             const isLastOdd =
@@ -146,12 +164,12 @@ export function ContactUs() {
               <div
                 key={i}
                 className={`border rounded-md p-4 hover:text-primary hover:shadow-glow flex items-center min-w-[250px] w-full
-          sm:w-[calc(50%-0.5rem)]
-          ${isLastOdd ? "md:w-full" : "md:w-[calc(50%-0.5rem)]"}
-        `}
+                  sm:w-[calc(50%-0.5rem)]
+                  ${isLastOdd ? "md:w-full" : "md:w-[calc(50%-0.5rem)]"}
+                `}
               >
-                <div className="mr-4">
-                  <Element />
+                <div className="mr-4" aria-hidden="true">
+                  <Element aria-label={`${e.name} Icon`} />
                 </div>
                 <div className="details text-left">
                   <p className="font-bold">{e.name}:</p>
@@ -160,7 +178,7 @@ export function ContactUs() {
               </div>
             );
           })}
-        </div>
+        </address>
       </div>
     </section>
   );
