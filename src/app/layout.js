@@ -1,6 +1,7 @@
 import "./globals.css";
 import LayoutProvider from "@/components/providers/LayoutProvider";
 import { Inter, Montserrat } from "next/font/google";
+import { Toaster } from "sonner";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${inter.variable} ${montserrat.variable} antialiased`}>
         <LayoutProvider>{children}</LayoutProvider>
+        <Toaster richColors position="top-right" closeButton />
       </body>
     </html>
   );
