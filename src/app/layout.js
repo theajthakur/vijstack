@@ -1,6 +1,7 @@
 import "./globals.css";
 import LayoutProvider from "@/components/providers/LayoutProvider";
 import { Inter, Montserrat } from "next/font/google";
+import { Analytics } from "@vercel/analytics/next";
 import { Toaster } from "sonner";
 
 const inter = Inter({
@@ -11,7 +12,7 @@ const inter = Inter({
 const montserrat = Montserrat({
   variable: "--font-montserrat",
   subsets: ["latin"],
-  weight: ["400", "600", "700"], // choose the weights you’ll use
+  weight: ["400", "600", "700"],
 });
 
 export const metadata = {
