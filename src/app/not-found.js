@@ -13,8 +13,8 @@ export default function NotFound() {
         </div>
         <div className="text-center my-3">
           <h2 className="my-3">
-            We are prioritising our clients, We'll be fixing this as soon as we
-            get free!
+            We are prioritising our clients, We will be fixing this as soon as
+            we get free!
           </h2>
           <button
             onClick={() => {
