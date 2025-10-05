@@ -1,3 +1,4 @@
+"use client";
 import { Car, Rocket } from "lucide-react";
 import React from "react";
 
@@ -15,13 +16,16 @@ export default function NotFound() {
             We are prioritising our clients, We'll be fixing this as soon as we
             get free!
           </h2>
-          <button className="px-3 py-2 mt-3 border-white rounded-xl border-2 text-white transition-all cursor-pointer hover:bg-secondary hover:border-secondary">
-            <a href="/">
-              <div className="flex gap-2">
-                <Car />
-                <p> Go Back to Home</p>
-              </div>
-            </a>
+          <button
+            onClick={() => {
+              window.location.href = "/";
+            }}
+            className="px-3 py-2 mt-3 border-white rounded-xl border-2 text-white transition-all cursor-pointer hover:bg-secondary hover:border-secondary"
+          >
+            <div className="flex gap-2">
+              <Car />
+              <p> Go Back to Home</p>
+            </div>
           </button>
         </div>
       </div>
