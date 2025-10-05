@@ -79,7 +79,11 @@ export default function Footer() {
             {[
               { link: "/", text: "Home", icon: Home },
               { link: "/about", text: "About", icon: Building2 },
-              { link: "/portfolio", text: "Portfolio", icon: File },
+              {
+                link: "https://dev.vijstack.com",
+                text: "Portfolio",
+                icon: File,
+              },
               { link: "/contact", text: "Contact", icon: PhoneCall },
             ].map((e, i) => (
               <li className="flex gap-2 items-center" key={i}>
