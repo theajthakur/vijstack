@@ -1,0 +1,9 @@
+# *
+User-agent: *
+Allow: /
+
+# Host
+Host: https://vijstack.com
+
+# Sitemaps
+Sitemap: https://vijstack.com/sitemap.xml
