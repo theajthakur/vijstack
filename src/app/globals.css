@@ -1,0 +1,70 @@
+@import "tailwindcss";
+
+@theme {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+}
+
+:root {
+  --background: oklch(0.1 0.01 240);
+  --foreground: oklch(0.98 0 0);
+  --card: oklch(0.1 0.01 240);
+  --card-foreground: oklch(0.98 0 0);
+  --popover: oklch(0.1 0.01 240);
+  --popover-foreground: oklch(0.98 0 0);
+  --primary: oklch(0.6 0.3 270);
+  /* Vibrant Purple */
+  --primary-foreground: oklch(0.98 0 0);
+  --secondary: oklch(0.6 0.3 320);
+  /* Vibrant Pink */
+  --secondary-foreground: oklch(0.98 0 0);
+  --muted: oklch(0.2 0.02 240);
+  --muted-foreground: oklch(0.7 0.02 240);
+  --accent: oklch(0.7 0.2 30);
+  /* Vibrant Orange */
+  --accent-foreground: oklch(0.98 0 0);
+  --destructive: oklch(0.4 0.2 20);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.2 0.02 240);
+  --input: oklch(0.2 0.02 240);
+  --ring: oklch(0.8 0 0);
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+.glass-card {
+  @apply bg-white/5 backdrop-blur-lg border border-white/10 shadow-xl;
+}
+
+.text-gradient {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-primary via-secondary to-accent;
+}
+
+.bg-gradient-main {
+  @apply bg-gradient-to-br from-background via-[#1a0b2e] to-[#0f0518];
+}
